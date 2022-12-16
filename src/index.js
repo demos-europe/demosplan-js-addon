@@ -1,7 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
-const { WebpackManifestPlugin } = require('webpack-manifest-plugin')
+const WebpackAssetsManifest = require('webpack-assets-manifest');
 
 /**
  * Resolve a path relative to the package root directory
@@ -35,9 +35,11 @@ function resolve (dir) {
  * @returns {Options} webpack configuration
  */
 function configBuilder(addon_name, entrypoints) {
+  const isProduction = process.env.NODE_ENV == 'production'
+
   return {
     entry: entrypoints,
-    mode: (process.env.NODE_ENV == 'production') ? 'production' : 'development',
+    mode: isProduction ? 'production' : 'development',
     output: {
       path: resolve('dist'),
       filename: `[name].umd.js`,
@@ -48,12 +50,14 @@ function configBuilder(addon_name, entrypoints) {
     resolve: {
       extensions: ['.js', '.vue']
     },
+    devtool: isProduction ? 'nosources-source-map': 'eval-source-map',
     plugins: [
       new MiniCssExtractPlugin(),
       new VueLoaderPlugin(),
-      new WebpackManifestPlugin({
-        fileName: resolve(`./${addon_name}.manifest.json`),
-        publicPath: 'dist'
+      new WebpackAssetsManifest({
+        publicPath: true,
+        entrypoints: true,
+        entrypointsUseAssets: true
       })
     ],
     module: {
@@ -87,7 +91,7 @@ function configBuilder(addon_name, entrypoints) {
           type: 'asset',
         },
       ],
-    },
+    }
   }
 }
 
