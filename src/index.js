@@ -40,7 +40,11 @@ function configBuilder(addon_name, entrypoints) {
   /**
    * Transform the entry points object into a usable format
    * so a browser is able to digest the output but still keep
-   * the simple webpack config mentioned above to create addons
+   * the simple webpack config mentioned above to create addons.
+   *
+   * Basically webpack's EntryDescription object is used to define
+   * the library output https://webpack.js.org/concepts/entry-points/#entrydescription-object.
+   * Further configuration of library types can be found here https://webpack.js.org/configuration/output/#outputlibrary
    */
   for (const key of Object.keys(entrypoints)) {
     entrypoints[key] = {
