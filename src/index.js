@@ -58,7 +58,7 @@ function configBuilder(addon_name, entrypoints) {
     output: {
       path: resolve('dist'),
       filename: `[name].umd.js`,
-      library: `${addon_name}`
+      library: addon_name
     },
     resolve: {
       extensions: ['.js', '.vue']
