@@ -5,11 +5,11 @@ const WebpackAssetsManifest = require('webpack-assets-manifest');
 
 /**
  * Resolve a path relative to the package root directory
- * 
+ *
  * This function assumes that it is run as part of a node process
  * started from the addon root for the webpack build.
- * 
- * @param {String} dir 
+ *
+ * @param {String} dir
  * @returns String combined path
  */
 function resolve (dir) {
@@ -18,24 +18,43 @@ function resolve (dir) {
 
 /**
  * Create a webpack config usable for demosplan-core addons.
- * 
+ *
  * ## Usage
- * 
+ *
  * ```js
  * const DemosplanAddon = require('@demos-europe/demosplan-addon')
- * 
+ *
  * module.exports = DemosplanAddon.build(
- *   'my-addon-name', 
+ *   'my-addon-name',
  *   { 'MyAddon': DemosPlanAddon.resolve('src/index.js') }
  * )
  * ```
- * 
+ *
  * @param {String} addon_name the name, d'uh
- * @param {Object} entrypoints name-mapped entry points dictionary 
+ * @param {Object} entrypoints name-mapped entry points dictionary
  * @returns {Options} webpack configuration
  */
 function configBuilder(addon_name, entrypoints) {
   const isProduction = process.env.NODE_ENV == 'production'
+
+  /**
+   * Transform the entry points object into a usable format
+   * so a browser is able to digest the output but still keep
+   * the simple webpack config mentioned above to create addons.
+   *
+   * Basically webpack's EntryDescription object is used to define
+   * the library output https://webpack.js.org/concepts/entry-points/#entrydescription-object.
+   * Further configuration of library types can be found here https://webpack.js.org/configuration/output/#outputlibrary
+   */
+  for (const key of Object.keys(entrypoints)) {
+    entrypoints[key] = {
+      import: entrypoints[key]
+    }
+    entrypoints[key]['library'] = {
+      name: key,
+      type: 'window'
+    }
+  }
 
   return {
     entry: entrypoints,
@@ -43,9 +62,7 @@ function configBuilder(addon_name, entrypoints) {
     output: {
       path: resolve('dist'),
       filename: `[name].umd.js`,
-      library: `${addon_name}`,
-      libraryTarget: 'umd',
-      libraryExport: 'default'
+      library: addon_name
     },
     resolve: {
       extensions: ['.js', '.vue']
@@ -98,7 +115,7 @@ function configBuilder(addon_name, entrypoints) {
 /**
  * Expose a webpack config builder and useful helpers
  * for entrypoint configuration.
- * 
+ *
  */
 const DemosplanAddon = {
   build: configBuilder,
