@@ -104,6 +104,23 @@ function configBuilder(addon_name, entrypoints) {
           ],
         },
         {
+          test: /\.(scss|css)$/,
+          use: [
+            'style-loader',
+            'css-loader'
+          ]
+        },
+        {
+          test: /\.scss$/,
+          loader: 'sass-loader',
+          options: {
+            additionalData:
+              `@import "@demos-europe/demosplan-ui/tokens/scss/_color.scss";
+              @import "@demos-europe/demosplan-ui/tokens/scss/_fontSize.scss";
+              @import "@demos-europe/demosplan-ui/tokens/scss/_space.scss";`
+          }
+        },
+        {
           test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
           type: 'asset',
         },
