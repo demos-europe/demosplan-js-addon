@@ -2,6 +2,8 @@
 
 ## UNRELEASED
 
+- Feat: add support for SCSS in Vue
+
 ## v0.0.3 - 07-02-2023
 
 - Transform entry points to enable a simple usage in the webpack config to create a browser digestible output 
