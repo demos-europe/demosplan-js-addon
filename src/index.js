@@ -115,8 +115,13 @@ function configBuilder(addon_name, entrypoints) {
           loader: 'sass-loader',
           options: {
             additionalData:
-              `@import "@demos-europe/demosplan-ui/tokens/scss/_color.scss";
+              `@import "@demos-europe/demosplan-ui/tokens/scss/_boxShadow.scss";
+              @import "@demos-europe/demosplan-ui/tokens/scss/_color.palette.scss";
+              @import "@demos-europe/demosplan-ui/tokens/scss/_color.data.scss";
+              @import "@demos-europe/demosplan-ui/tokens/scss/_color.brand.scss";
+              @import "@demos-europe/demosplan-ui/tokens/scss/_color.ui.scss";
               @import "@demos-europe/demosplan-ui/tokens/scss/_fontSize.scss";
+              @import "@demos-europe/demosplan-ui/tokens/scss/_rounded.scss";
               @import "@demos-europe/demosplan-ui/tokens/scss/_space.scss";`
           }
         },
