@@ -2,7 +2,15 @@
 
 ## UNRELEASED
 
-- Doc: add support for SCSS in Vue
+## v0.0.5 - 19-05-2023
+
+**Fixes**
+
+- improve Support for SCSS in Vue
+
+## v0.0.4 - 23-03-2023
+
+- SCSS scoped style support
 
 ## v0.0.3 - 07-02-2023
 
