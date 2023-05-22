@@ -32,9 +32,10 @@ function resolve (dir) {
  *
  * @param {String} addon_name the name, d'uh
  * @param {Object} entrypoints name-mapped entry points dictionary
+ * @param {Boolean} minimize disable code minimization
  * @returns {Options} webpack configuration
  */
-function configBuilder(addon_name, entrypoints) {
+function configBuilder(addon_name, entrypoints, minimize = true) {
   const isProduction = process.env.NODE_ENV == 'production'
 
   /**
@@ -66,6 +67,9 @@ function configBuilder(addon_name, entrypoints) {
     },
     resolve: {
       extensions: ['.js', '.vue']
+    },
+    optimization: {
+      minimize: minimize
     },
     devtool: isProduction ? 'nosources-source-map': 'eval-source-map',
     plugins: [
