@@ -2,6 +2,10 @@
 
 ## UNRELEASED
 
+**Feature**
+
+- Add param to disable code minimization
+
 ## v0.0.5 - 19-05-2023
 
 **Fixes**
