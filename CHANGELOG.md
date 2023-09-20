@@ -2,9 +2,13 @@
 
 ## UNRELEASED
 
+**Fixed**
+
+- Adapt paths to scss tokens in demosplan-ui ([#86](https://github.com/demos-europe/demosplan-js-addon/pull/86))
+
 ## v0.0.5 - 19-05-2023
 
-**Fixes**
+**Fixed**
 
 - improve Support for SCSS in Vue
 
