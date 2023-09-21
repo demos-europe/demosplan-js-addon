@@ -117,9 +117,9 @@ function configBuilder(addon_name, entrypoints) {
             additionalData:
               `@import "@demos-europe/demosplan-ui/tokens/dist/scss/_boxShadow.scss";
               @import "@demos-europe/demosplan-ui/tokens/dist/scss/_breakpoints.scss";
-              @import "@demos-europe/demosplan-ui/tokens/dist/scss/_color.brand.scss";
-              @import "@demos-europe/demosplan-ui/tokens/dist/scss/_color.data.scss";
               @import "@demos-europe/demosplan-ui/tokens/dist/scss/_color.palette.scss";
+              @import "@demos-europe/demosplan-ui/tokens/dist/scss/_color.data.scss";
+              @import "@demos-europe/demosplan-ui/tokens/dist/scss/_color.brand.scss";
               @import "@demos-europe/demosplan-ui/tokens/dist/scss/_color.ui.scss";
               @import "@demos-europe/demosplan-ui/tokens/dist/scss/_fontSize.scss";
               @import "@demos-europe/demosplan-ui/tokens/dist/scss/_rounded.scss";
