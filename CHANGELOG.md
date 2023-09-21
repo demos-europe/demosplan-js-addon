@@ -2,6 +2,8 @@
 
 ## UNRELEASED
 
+## v0.0.6 - 21-09-2023
+
 **Fixed**
 
 - Adapt paths to scss tokens in demosplan-ui ([#86](https://github.com/demos-europe/demosplan-js-addon/pull/86))
