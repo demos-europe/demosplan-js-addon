@@ -2,6 +2,12 @@
 
 ## UNRELEASED
 
+## v0.0.7 - 21-09-2023
+
+**Fixed**
+
+- Ordering of scss token paths in demosplan-ui matters ([#87](https://github.com/demos-europe/demosplan-js-addon/pull/87))
+
 ## v0.0.6 - 21-09-2023
 
 **Fixed**
