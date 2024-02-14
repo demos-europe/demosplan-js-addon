@@ -2,6 +2,10 @@
 
 ## UNRELEASED
 
+**Changed**
+
+- Bump webpack from 5.89 to 5.90, bump all deps to their latest versions ([#](https://github.com/demos-europe/demosplan-js-addon/pull/))
+
 ## v0.0.7 - 21-09-2023
 
 **Fixed**
