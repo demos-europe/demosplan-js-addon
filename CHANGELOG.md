@@ -5,6 +5,7 @@
 **Changed**
 
 - Bump webpack from 5.89 to 5.90, @babel/* from 7.23 to 7.24, bump all deps to their latest versions ([#139](https://github.com/demos-europe/demosplan-js-addon/pull/139))
+- Set node >= 18.12.0 as required engine  
 
 ## v0.0.7 - 21-09-2023
 
