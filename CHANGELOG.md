@@ -2,7 +2,7 @@
 
 ## UNRELEASED
 
-## v0.0.8 - 12-03-2024
+## v0.0.9 - 12-03-2024
 
 > [!IMPORTANT]
 > THIS PACKAGE HAS BEEN RENAMED TO `@demos-europe/demosplan-addon-client-builder`
