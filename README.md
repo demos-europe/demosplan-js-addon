@@ -2,7 +2,7 @@
 
 > Base dependency for frontend configuration in demosplan-core addons.
 
-`yarn add -D @demosplan-europe/demosplan-addon-client-builder`
+`yarn add -D @demos-europe/demosplan-addon-client-builder`
 
 This repo contains the webpack configuration builder for demosplan-core addons.
 It can and should be used when creating addons for demosplan-core that contain
@@ -12,7 +12,7 @@ After installation, only the addon's name and entry points have to be defined
 in `config.webpack.js`:
 
 ```js
-const DemosplanAddon = require('@demosplan-europe/demosplan-addon-client-builder')
+const DemosplanAddon = require('@demos-europe/demosplan-addon-client-builder')
   
 module.exports = DemosplanAddon.build(
     'my-addon-name', 
